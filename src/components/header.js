@@ -2,11 +2,15 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import "./header.css"
+
+import { SkipNavContent } from "@reach/skip-nav"
+
 const Header = ({ siteTitle }) => (
   <header
     style={{
       background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
+      marginBottom: `1.75rem`,
     }}
   >
     <div
@@ -27,6 +31,16 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <nav aria-labelledby="header-skip-target">
+        <SkipNavContent>
+          <h2 className="visually-hidden" id="header-skip-target">Global navigation</h2>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+          </ul>
+        </SkipNavContent>
+      </nav>
     </div>
   </header>
 )
